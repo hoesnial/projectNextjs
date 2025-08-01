@@ -1,3 +1,55 @@
+## 🛠️ Setup Project
+
+Clone Repo
+
+````bash
+git clone https://github.com/username/nextjs-ecommerce.git
+cd nextjs-ecommerce
+
+npm install
+
+DATABASE_URL="postgresql://username:password@localhost:5432/dbname"
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your_supabase_anon_key
+NEXT_PUBLIC_REDIRECT_URL=http://localhost:3000/dashboard/orders
+
+npx prisma migrate dev --name init
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'your-project.supabase.co'
+      }
+    ]
+  }
+};
+
+export default nextConfig;
+
+
+Akses Admin Panel
+Setelah menjalankan seed, kamu bisa login sebagai admin melalui:
+
+📍 http://localhost:3000/dashboard/sign-in
+
+Gunakan akun:
+
+makefile
+Copy
+Edit
+Email: admin@example.com
+Password: admin123
+
+
+npm run dev
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -12,7 +64,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
